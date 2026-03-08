@@ -1,0 +1,256 @@
+/* ===== MyVet.uz Premium Design System ===== */
+
+/* --- CSS Custom Properties --- */
+:root {
+  /* Blue Gradient Palette */
+  --mv-navy-deep: #0a1628;
+  --mv-navy: #0f2044;
+  --mv-navy-light: #1a3a6c;
+  --mv-blue: #1565C0;
+  --mv-blue-bright: #2196F3;
+  --mv-blue-light: #64B5F6;
+  --mv-blue-pale: #BBDEFB;
+  --mv-blue-glow: rgba(33, 150, 243, 0.35);
+
+  /* Accent */
+  --mv-accent: #4FC3F7;
+  --mv-accent-glow: rgba(79, 195, 247, 0.25);
+  --mv-white: #ffffff;
+  --mv-off-white: #f0f4f8;
+  --mv-text: #1a2a3a;
+  --mv-text-muted: #5a6a7a;
+  --mv-text-on-dark: #e0e8f0;
+
+  /* Shadows */
+  --mv-shadow-sm: 0 2px 8px rgba(10, 22, 40, 0.08);
+  --mv-shadow-md: 0 4px 20px rgba(10, 22, 40, 0.12);
+  --mv-shadow-lg: 0 8px 40px rgba(10, 22, 40, 0.18);
+  --mv-shadow-glow: 0 4px 30px var(--mv-blue-glow);
+
+  /* Border Radius */
+  --mv-radius-sm: 10px;
+  --mv-radius-md: 16px;
+  --mv-radius-lg: 20px;
+  --mv-radius-xl: 28px;
+  --mv-radius-pill: 50px;
+
+  /* Transitions */
+  --mv-transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  --mv-transition-slow: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* --- Global Resets & Typography --- */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  color: var(--mv-text);
+  background: var(--mv-off-white);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Outfit', 'Inter', sans-serif;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+/* --- Gradient Card — Core Utility --- */
+.gradient-card {
+  background: linear-gradient(135deg, var(--mv-navy) 0%, var(--mv-navy-light) 50%, var(--mv-blue) 100%);
+  border-radius: var(--mv-radius-lg);
+  border: 1px solid rgba(100, 181, 246, 0.15);
+  color: var(--mv-white);
+  padding: 2rem;
+  box-shadow: var(--mv-shadow-md);
+  transition: var(--mv-transition);
+  position: relative;
+  overflow: hidden;
+}
+
+.gradient-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, rgba(255,255,255,0.05) 0%, transparent 50%);
+  pointer-events: none;
+}
+
+.gradient-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--mv-shadow-glow);
+  border-color: rgba(100, 181, 246, 0.3);
+}
+
+.gradient-card h5,
+.gradient-card .card-title {
+  color: var(--mv-white);
+  font-family: 'Outfit', sans-serif;
+  font-weight: 600;
+}
+
+.gradient-card p,
+.gradient-card .card-text {
+  color: var(--mv-text-on-dark);
+}
+
+.gradient-card a {
+  color: var(--mv-accent);
+  text-decoration: none;
+  transition: var(--mv-transition);
+}
+
+.gradient-card a:hover {
+  color: var(--mv-blue-pale);
+  text-decoration: underline;
+}
+
+/* Lighter variant for contrast */
+.gradient-card-light {
+  background: linear-gradient(135deg, rgba(21, 101, 192, 0.06) 0%, rgba(33, 150, 243, 0.1) 100%);
+  border-radius: var(--mv-radius-lg);
+  border: 1px solid rgba(33, 150, 243, 0.15);
+  color: var(--mv-text);
+  padding: 2rem;
+  box-shadow: var(--mv-shadow-sm);
+  transition: var(--mv-transition);
+}
+
+.gradient-card-light:hover {
+  box-shadow: var(--mv-shadow-md);
+  border-color: rgba(33, 150, 243, 0.3);
+  transform: translateY(-2px);
+}
+
+/* --- CTA Button --- */
+.cta-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.85rem 2rem;
+  background: linear-gradient(135deg, var(--mv-blue-bright) 0%, var(--mv-blue) 100%);
+  color: var(--mv-white) !important;
+  border: none;
+  border-radius: var(--mv-radius-pill);
+  font-family: 'Outfit', sans-serif;
+  font-weight: 600;
+  font-size: 1.05rem;
+  text-decoration: none !important;
+  cursor: pointer;
+  transition: var(--mv-transition);
+  box-shadow: 0 4px 15px rgba(33, 150, 243, 0.3);
+}
+
+.cta-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 25px rgba(33, 150, 243, 0.45);
+  background: linear-gradient(135deg, var(--mv-blue-light) 0%, var(--mv-blue-bright) 100%);
+  color: var(--mv-white) !important;
+}
+
+.cta-button-outline {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.8rem;
+  background: transparent;
+  color: var(--mv-blue-light) !important;
+  border: 2px solid rgba(100, 181, 246, 0.4);
+  border-radius: var(--mv-radius-pill);
+  font-family: 'Outfit', sans-serif;
+  font-weight: 600;
+  font-size: 1rem;
+  text-decoration: none !important;
+  cursor: pointer;
+  transition: var(--mv-transition);
+}
+
+.cta-button-outline:hover {
+  background: rgba(100, 181, 246, 0.1);
+  border-color: var(--mv-blue-light);
+  color: var(--mv-white) !important;
+  transform: translateY(-2px);
+}
+
+/* --- Hero Badge --- */
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1.25rem;
+  background: linear-gradient(135deg, rgba(33, 150, 243, 0.15) 0%, rgba(79, 195, 247, 0.1) 100%);
+  border: 1px solid rgba(100, 181, 246, 0.25);
+  border-radius: var(--mv-radius-pill);
+  color: var(--mv-accent);
+  font-size: 0.9rem;
+  font-weight: 500;
+  backdrop-filter: blur(10px);
+}
+
+/* --- Section Titles --- */
+.section-title {
+  font-family: 'Outfit', sans-serif;
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--mv-navy);
+  text-align: center;
+  margin-bottom: 0.5rem;
+}
+
+.section-subtitle {
+  text-align: center;
+  color: var(--mv-text-muted);
+  font-size: 1.05rem;
+  margin-bottom: 2rem;
+}
+
+/* --- Keyframe Animations --- */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-8px); }
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: 0 0 20px rgba(33, 150, 243, 0.2); }
+  50% { box-shadow: 0 0 35px rgba(33, 150, 243, 0.4); }
+}
+
+.animate-fade-in {
+  animation: fadeInUp 0.6s ease-out both;
+}
+
+.animate-fade-in-delay-1 { animation-delay: 0.1s; }
+.animate-fade-in-delay-2 { animation-delay: 0.2s; }
+.animate-fade-in-delay-3 { animation-delay: 0.3s; }
+.animate-fade-in-delay-4 { animation-delay: 0.4s; }
+
+/* --- Utility --- */
+.text-gradient {
+  background: linear-gradient(135deg, var(--mv-blue-light), var(--mv-accent));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
